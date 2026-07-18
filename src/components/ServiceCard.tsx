@@ -42,13 +42,28 @@ export default function ServiceCard({
 }) {
   return (
     <div
-      className="hidden-on-load group rounded-2xl bg-white border border-gray-100 p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-      style={{ transitionDelay: `${index * 100}ms` }}
+      className="card-premium p-8 group animate-fade-in-up overflow-hidden"
+      style={{ animationDelay: `${index * 100}ms` }}
     >
-      <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300">
+      {/* Service image */}
+      {service.image && (
+        <div className="-mx-8 -mt-8 mb-6 overflow-hidden">
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      )}
+
+      {/* Accent top bar */}
+      <div className="absolute top-0 left-6 right-6 h-0.5 bg-accent/30 group-hover:bg-accent transition-colors duration-300 rounded-full" />
+
+      <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300 shadow-sm">
         {icons[service.icon] || icons.leaf}
       </div>
-      <h3 className="text-xl font-semibold text-dark mb-3">{service.title}</h3>
+      <h3 className="text-xl font-bold text-dark mb-3">{service.title}</h3>
       <p className="text-dark-muted leading-relaxed">{service.description}</p>
     </div>
   );
