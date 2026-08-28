@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ContactForm from "~/components/ContactForm";
+import WaveDivider from "~/components/WaveDivider";
 import { config } from "~/config";
 
 export const Route = createFileRoute("/contact")({
@@ -23,29 +24,34 @@ function Contact() {
   return (
     <>
       {/* Header */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary to-primary-dark text-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block rounded-full bg-white/20 px-4 py-1.5 text-sm font-medium text-white/90 mb-4 backdrop-blur-sm">
+      <section className="relative pt-32 pb-24 bg-primary text-white overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-white/[0.04] translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white/[0.04] -translate-x-1/3 translate-y-1/3" />
+        </div>
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
+          <span className="section-pill bg-white/15 text-white mb-6">
             Get in Touch
           </span>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
             Contact Us
           </h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="mt-6 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
             We'd love to hear from you. Reach out with questions, project ideas,
             or just to say hello.
           </p>
         </div>
+        <WaveDivider fill="white" height={60} />
       </section>
 
       {/* Contact Info + Form */}
-      <section className="py-20 bg-surface">
+      <section className="py-24 md:py-28 bg-surface">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left: Info cards */}
             <div className="space-y-6">
               {/* Phone */}
-              <div className="rounded-2xl bg-white p-8 shadow-sm border border-gray-100 flex items-start gap-5">
+              <div className="card-elevated p-8 flex items-start gap-5">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
@@ -66,7 +72,7 @@ function Contact() {
               </div>
 
               {/* Email */}
-              <div className="rounded-2xl bg-white p-8 shadow-sm border border-gray-100 flex items-start gap-5">
+              <div className="card-elevated p-8 flex items-start gap-5">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
                   <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -87,7 +93,7 @@ function Contact() {
               </div>
 
               {/* Address */}
-              <div className="rounded-2xl bg-white p-8 shadow-sm border border-gray-100 flex items-start gap-5">
+              <div className="card-elevated p-8 flex items-start gap-5">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -104,7 +110,7 @@ function Contact() {
               </div>
 
               {/* Hours */}
-              <div className="rounded-2xl bg-white p-8 shadow-sm border border-gray-100 flex items-start gap-5">
+              <div className="card-elevated p-8 flex items-start gap-5">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
                   <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -130,7 +136,7 @@ function Contact() {
               </div>
 
               {/* Google Maps placeholder */}
-              <div className="rounded-2xl bg-white p-8 shadow-sm border border-gray-100">
+              <div className="card-elevated p-8">
                 <h3 className="text-lg font-semibold text-dark mb-4">Our Service Area</h3>
                 <div className="aspect-video rounded-xl bg-surface flex items-center justify-center border border-gray-200">
                   <div className="text-center">

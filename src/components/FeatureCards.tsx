@@ -22,19 +22,34 @@ export default function FeatureCards() {
   const { features } = config;
 
   return (
-    <section className="py-20 bg-surface">
+    <section className="py-24 md:py-28 bg-surface relative">
+      {/* Subtle top border accent */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-accent/40 rounded-full" />
+
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <span className="section-pill bg-primary/10 text-primary">
+            Why LawnPress
+          </span>
+          <h2 className="mt-5 text-3xl sm:text-4xl font-bold text-dark">
+            The LawnPress Difference
+          </h2>
+          <p className="mt-4 text-dark-muted max-w-2xl mx-auto text-lg">
+            We're not just another landscaping company — we're your partner in creating the outdoor space you've always wanted.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature: Config["features"][number], index: number) => (
             <div
               key={feature.title}
-              className="hidden-on-load group rounded-2xl bg-white p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-              style={{ transitionDelay: `${index * 150}ms` }}
+              className="card-premium p-10 flex flex-col items-center text-center animate-fade-in-up"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary shadow-sm">
                 {icons[feature.icon] || icons.star}
               </div>
-              <h3 className="text-xl font-semibold text-dark mb-3">{feature.title}</h3>
+              <h3 className="text-xl font-bold text-dark mb-3">{feature.title}</h3>
               <p className="text-dark-muted leading-relaxed">{feature.description}</p>
             </div>
           ))}

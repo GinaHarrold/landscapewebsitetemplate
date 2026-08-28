@@ -25,7 +25,7 @@ export default function ContactForm({
   className = "",
 }: ContactFormProps): JSX.Element {
   return (
-    <div className={`rounded-2xl bg-white p-8 shadow-sm border border-gray-100 ${className}`}>
+    <div className={`card-elevated p-8 sm:p-10 ${className}`}>
       <h2 className="text-2xl font-bold text-dark mb-3">{title}</h2>
       <p className="text-dark-muted mb-8">{description}</p>
       <form

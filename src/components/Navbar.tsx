@@ -30,10 +30,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2 text-xl font-bold tracking-tight text-primary"
+            className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight text-primary"
           >
             <svg
-              className="h-7 w-7"
+              className="h-8 w-8"
               viewBox="0 0 28 28"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -47,20 +47,23 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-0.5">
             {config.nav.links.map((link) => {
               const isActive = location.pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  className={`relative px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? "bg-primary/10 text-primary"
                       : "text-dark-muted hover:text-primary hover:bg-gray-50"
                   }`}
                 >
                   {link.label}
+                  {isActive && (
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
+                  )}
                 </Link>
               );
             })}

@@ -85,10 +85,17 @@ function RootComponent() {
 
 function ScrollObserver() {
   useEffect(() => {
+    // Make all hidden-on-load elements visible immediately
+    document.querySelectorAll(".hidden-on-load").forEach((el) => {
+      el.classList.add("always-visible");
+    });
+
+    // Also set up intersection observer for smooth scroll-triggered animation
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            entry.target.classList.remove("always-visible");
             entry.target.classList.add("visible");
             observer.unobserve(entry.target);
           }

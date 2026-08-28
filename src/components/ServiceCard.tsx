@@ -33,6 +33,10 @@ const icons: Record<string, JSX.Element> = {
   ),
 };
 
+function toWebp(src: string): string {
+  return src.replace(/\.jpg$/, ".webp");
+}
+
 export default function ServiceCard({
   service,
   index,
@@ -45,15 +49,21 @@ export default function ServiceCard({
       className="card-premium p-8 group animate-fade-in-up overflow-hidden"
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      {/* Service image */}
+      {/* Service image with WebP + JPEG fallback */}
       {service.image && (
         <div className="-mx-8 -mt-8 mb-6 overflow-hidden">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
+          <picture>
+            <source srcSet={toWebp(service.image)} type="image/webp" />
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+              width={400}
+              height={200}
+            />
+          </picture>
         </div>
       )}
 
