@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import Hero from "~/components/Hero";
+import StatsCounter from "~/components/StatsCounter";
 import FeatureCards from "~/components/FeatureCards";
 import Testimonials from "~/components/Testimonials";
 import CTASection from "~/components/CTASection";
@@ -78,40 +79,57 @@ function Home() {
   return (
     <>
       <Hero />
+      <StatsCounter />
       <FeatureCards />
 
       {/* Services Preview */}
-      <section className="py-20 bg-white">
+      <section className="py-24 md:py-28 bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <ScrollRevealSection className="text-center mb-14">
-            <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent mb-4">
+          <ScrollRevealSection className="text-center mb-16">
+            <span className="section-pill bg-accent/10 text-accent">
               Our Services
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-dark">
+            <h2 className="mt-5 text-3xl sm:text-4xl font-bold text-dark">
               Professional Landscaping, Done Right
             </h2>
-            <p className="mt-4 text-dark-muted max-w-2xl mx-auto">
+            <p className="mt-4 text-dark-muted max-w-2xl mx-auto text-lg">
               From design to maintenance, we offer a full range of services to keep your property looking its best year-round.
             </p>
           </ScrollRevealSection>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {config.services.slice(0, 3).map((service: Config["services"][number], index: number) => (
               <div
                 key={service.title}
-                className="hidden-on-load group rounded-xl bg-surface p-6 hover:shadow-md transition-all duration-300"
-                style={{ transitionDelay: `${index * 100}ms` }}
+                className="card-premium overflow-hidden group relative animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300">
-                  {serviceIcons[service.icon] || serviceIcons.leaf}
+                {service.image && (
+                  <div className="overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <div className="p-8">
+                  <div className="absolute top-0 left-6 right-6 h-0.5 bg-accent/30 group-hover:bg-accent transition-colors duration-300 rounded-full" />
+                  <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300 shadow-sm">
+                    {serviceIcons[service.icon] || serviceIcons.leaf}
+                  </div>
+                  <h3 className="text-xl font-bold text-dark mb-3">{service.title}</h3>
+                  <p className="text-dark-muted leading-relaxed">{service.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-dark mb-2">{service.title}</h3>
-                <p className="text-dark-muted text-sm leading-relaxed">{service.description}</p>
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Link to="/services" className="btn-outline">
+          <div className="text-center mt-12">
+            <Link to="/services" className="btn-outline text-base">
               View All Services
+              <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
             </Link>
           </div>
         </div>

@@ -85,36 +85,42 @@ export const config = {
       description:
         "From lush flower beds to complete yard makeovers, our design team works with you to create an outdoor space that reflects your style and fits your lifestyle.",
       icon: "leaf",
+      image: "/images/service-landscape-design.jpg",
     },
     {
       title: "Lawn Maintenance",
       description:
         "Keep your lawn looking its best with regular mowing, edging, trimming, and blowing. Weekly or bi-weekly visits tailored to your schedule.",
       icon: "grass",
+      image: "/images/service-lawn-maintenance.jpg",
     },
     {
       title: "Mulching",
       description:
         "Fresh mulch adds a clean, finished look to any landscape while helping retain moisture and suppress weeds. We offer a variety of colors and materials.",
       icon: "spa",
+      image: "/images/service-mulching.jpg",
     },
     {
       title: "Shrub & Tree Care",
       description:
         "Pruning, shaping, and health care for your shrubs and trees. Proper trimming keeps them looking great and encourages strong, healthy growth.",
       icon: "park",
+      image: "/images/service-shrub-tree-care.jpg",
     },
     {
       title: "Paver Patios",
       description:
         "Create the perfect outdoor living space with a custom paver patio, walkway, or driveway. Durable, beautiful, and designed to complement your home.",
       icon: "foundation",
+      image: "/images/service-paver-patios.jpg",
     },
     {
       title: "Seasonal Cleanup",
       description:
         "Spring and fall cleanup services to keep your yard tidy year-round. Leaf removal, debris clearing, bed prep, and planting for the seasons ahead.",
       icon: "cleaning",
+      image: "/images/service-seasonal-cleanup.jpg",
     },
   ],
 
