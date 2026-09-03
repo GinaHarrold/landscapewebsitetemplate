@@ -7,8 +7,6 @@
     "dev": "vite dev",
     "build": "vite build",
     "start": "node server.mjs",
-    "publish": "bash ./publish.sh",
-    "go-live": "bash ./go-live.sh",
     "format": "prettier --write ."
   },
   "dependencies": {
